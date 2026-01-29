@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Портфолио | Саша</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ОСНОВНОЙ СТИЛЬ */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #ffeddb 0%, #ffd3a5 100%);
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        header, section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-top: 60px;
+        }
+
+        .about-img img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 126, 43, 0.2);
+        }
+
+        .about-text { flex: 1; min-width: 300px; }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .case-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* ГАЛЕРЕЯ СО СКРОЛЛОМ */
+        .media-scroller {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ЛИНИЯ СКРОЛЛА ДЛЯ КОМПЬЮТЕРОВ */
+        .media-scroller::-webkit-scrollbar {
+            height: 6px; /* Высота полоски */
+        }
+        .media-scroller::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+        .media-scroller::-webkit-scrollbar-thumb {
+            background: #d35400; /* Цвет линии (оранжевый под стиль) */
+            border-radius: 10px;
+        }
+
+        /* Скрываем линию скролла на телефонах, оставляем только нативный свайп */
+        @media (max-width: 600px) {
+            .media-scroller::-webkit-scrollbar {
+                display: none;
+            }
+            .media-scroller {
+                scrollbar-width: none;
+            }
+            .about { flex-direction: column; text-align: center; }
+            .media-item { flex: 0 0 88%; }
+        }
+
+        
+
+        .media-item {
+            flex: 0 0 85%;
+            scroll-snap-align: start;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #222;
+            aspect-ratio: 9 / 16;
+        }
+
+        .media-item video, .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* КНОПКА ТЕЛЕГРАМ */
+        .tg-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #0088cc;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.4);
+            z-index: 1000;
+            transition: 0.3s ease;
+        }
+        .tg-button:hover { transform: scale(1.1); }
+        .tg-button svg { width: 30px; fill: white; }
+
+        video:-webkit-full-screen {
+            object-fit: contain; /* Видео будет вписано в экран без искажений */
+            background-color: #000; /* Фон вокруг видео станет черным */
+        }
+
+        video:-ms-fullscreen {
+            object-fit: contain;
+        }
+
+        video:fullscreen {
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="about">
+        <div class="about-img">
+            <img src="media/my-photo.jpg" alt="Саша SMM">
+        </div>
+        <div class="about-text">
+            <h1>Саша | SMM & Content</h1>
+            <p>Создаю контент, который заставляет нажимать «Лайк» и «Купить». Листай галереи моих кейсов!</p>
+        </div>
+    </header>
+
+    <section>
+        <h2>Портфолио</h2>
+        <div class="cases-grid">
+            
+            <div class="case-card">
+                <h3>01. Косметика «Mixit»</h3>
+                <p>Креаторство для бренда косметики в формате коротких видео и фото.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video1_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video1_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><img src="media/video/photo1_3.jpg" alt="Результат одного из видео Mixit"></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>02. Одежда «ТВОЕ»</h3>
+                <p>Креаторство для бренда одежды в формате коротких видео и фото.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video2_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video2_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video2_3.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><img src="media/video/photo2_4.jpg" alt="Результат одного из видео ТВОЕ"></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>03. «ЧАО КАКАО»</h3>
+                <p>Рилс для какаочной в Санкт-Петербурге.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video3_1.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>04. Кофейня «COFFEEЗ»</h3>
+                <p>Трендовый Reels для кофейни.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video4_1.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>05. Онлайн школа «СОТКА»</h3>
+                <p>Короткие ролики (Reels, TikTok) для образовательной платформы.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video5_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video5_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video5_3.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>06. Арт кофейня «Вкус искусства»</h3>
+                <p>Рекламный Reels.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video6_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video6_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video6_3.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>07. Чайная «Bubble Dubble tea»</h3>
+                <p>Рекламный Reels.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video7_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video7_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video7_3.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>08. Кондитерская «Cherchez la tarte»</h3>
+                <p>Рекламный Reels.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video8_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video8_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video8_3.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>09. Техно-стартап</h3>
+                <p>Сложный продукт простыми словами в формате Reels.</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video9_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video9_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video9_3.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <h3>10. Масштабирование</h3>
+                <p>Вывод бренда на новые площадки (ВК, Telegram).</p>
+                <div class="media-scroller">
+                    <div class="media-item"><video controls playsinline><source src="media/video/video10_1.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video10_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><video controls playsinline><source src="media/video/video10_3.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="https://t.me/твой_ник" class="tg-button" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.717-.962 4.084-1.362 5.441-.168.57-.493 1.053-.98 1.053-.254 0-.48-.073-.68-.22l-1.954-1.444-1.121 1.076c-.156.15-.353.22-.556.22-.09 0-.181-.01-.269-.034-.287-.076-.511-.3-.591-.59l-.92-3.39-2.327-.723c-.453-.14-.462-.486.012-.663l8.471-3.267c.391-.157.734.1.62.53z"/></svg>
+    </a>
+
+    <footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem;">
+        <p>&copy; 2026 SMM Portfolio. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
