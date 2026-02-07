@@ -51,8 +51,8 @@
         }
 
         .about-img img {
-            width: 250px;
-            height: 250px;
+            width: 260px;
+            height: 360px;
             object-fit: cover;
             border-radius: 30px;
             box-shadow: 0 15px 35px rgba(214, 126, 43, 0.2);
@@ -253,17 +253,161 @@
             background-color: #d35400;
             color: #fff;
         }
+
+                /* Подключение фирменного шрифта (замени font-file.woff2 на свое имя) */
+        @font-face {
+            font-family: 'NyghtSerif'; /* Оставляем твое название, но внутри файл Postertoaster */
+            src: url('media/Postertoaster.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Стили для пузырчатой навигации */
+        .nav-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            gap: 15px;
+        }
+
+        .brand-name {
+            font-family: 'NyghtSerif', serif; 
+            font-size: 6rem; /* Увеличил с 3.8 до 6.0 — это будет очень мощно! */
+            font-weight: 900;
+            color: #333;
+            margin: 0;
+            line-height: 0.9; /* Прижимаем строки друг к другу, чтобы имя смотрелось как логотип */
+            text-align: center;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+            letter-spacing: -1px; /* Для такого жирного шрифта лучше чуть-чуть сблизить буквы */
+        }
+
+
+        @media (max-width: 600px) {
+            .brand-name {
+                font-size: 3.5rem; /* На мобилках делаем поменьше */
+            }
+        }
+
+        .bubble-nav {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 8px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(214, 126, 43, 0.1);
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #555;
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-item.active {
+            background: #fff;
+            color: #d35400;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-item:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.5);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Убираем лишний отступ у старой шапки, так как новая теперь сверху */
+        header.about {
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .brand-name { font-size: 2.5rem; }
+            .nav-item { padding: 8px 18px; font-size: 0.85rem; }
+        }
+
+        /* Кнопка "Больше моих работ" */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px 100px; /* Отступы, чтобы не прилипала к контенту и футеру */
+        }
+
+        .bubble-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: #333;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 100px; /* Идеально круглая форма "пузыря" */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(214, 126, 43, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .bubble-button:hover {
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 15px 40px rgba(214, 126, 43, 0.25);
+            color: #d35400;
+        }
+
+        .bubble-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Иконка стрелочки или блеска внутри кнопки (по желанию) */
+        .bubble-button::after {
+            content: '✨'; 
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
+
+    <nav class="nav-container">
+        <h1 class="brand-name">саня солвми</h1>
+        <div class="bubble-nav">
+            <a href="index.html" class="nav-item active">Главная</a>
+            <a href="contacts/index.html" class="nav-item">Контакты</a>
+        </div>
+    </nav>
 
     <header class="about">
         <div class="about-img">
             <img src="media/my-photo.jpg" alt="Саша SMM">
         </div>
         <div class="about-text">
-            <h1>Саша Солвми | SMM & Content</h1>
-            <p>Создаю контент, который заставляет нажимать «Лайк» и «Купить». Листай галереи моих кейсов!</p>
+            <h2>SMM & Content Specialist</h2> 
+            <p>Опыт – 3 года. Работаю в Photoshop, Illustrator, CapCut.</p>
+
+<p>Оборудование: экшн-камера DJI Osmo pocket 3, iРhоnе 16 pro, петличный микрофон, штатив, портативный свет.</p>
+
+<p>Чем я могу вам помочь?</p>
+
+<ul>
+  <li>Создание и монтаж роликов для Instagram (Reels), TikTok и других платформ. Сценарии, креативный, стильный монтаж. Специализируюсь на Reels и UGC для брендов и экспертов - делаю контент, который не просто красиво выглядит, а вовлекает, продаёт и вызывает доверие.</li>
+  <li>Полный цикл видеосъёмки и монтажа. Съемка на профессиональное оборудование и четкая картинка.</li>
+  <li>Креативный монтаж рекламных, корпоративных видео, подкастов, влогов и других жанров видео.</li>
+  <li>Съёмка мероприятий (День рождения, свадьба, девичник, студийные съемки, прогулки, love stories, мастер-классы).</li>
+</ul>
         </div>
     </header>
     
@@ -431,19 +575,20 @@
 
             <div class="case-card">
                 <h3>13. Цветочный магазин «Чёрный рыцарь»</h3>
-                <p>Оформление аккаунта, видео Reels.</p>
+                <p>Видео Reels.</p>
                 <div class="media-scroller">
                     <div class="media-item"><video controls playsinline><source src="media/video/video13_1.mp4" type="video/mp4"></video></div>
                     <div class="media-item"><video controls playsinline><source src="media/video/video13_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><img src="media/video/photo13_2.jpg" alt="Аккаунт"></div>
                 </div>
             </div>
 
             <div class="case-card">
-                <h3>14. Украшения «Solwmees»</h3>
-                <p>Ведение аккаунта, видео Reels, создание бренда</p>
+                <h3>14. Арт пространство с мастер-классами</h3>
+                <p>Видео Reels.</p>
                 <div class="media-scroller">
                     <div class="media-item"><video controls playsinline><source src="media/video/video14_1.mp4" type="video/mp4"></video></div>
-                    <div class="media-item"><video controls playsinline><source src="media/video/video14_2.mp4" type="video/mp4"></video></div>
+                    <div class="media-item"><img src="media/video/photo14_2.jpg" alt="Аккаунт"></div>
                 </div>
             </div>
 
@@ -452,13 +597,18 @@
                 <p>Контент для Reels, оформление аккаунта</p>
                 <div class="media-scroller">
                     <div class="media-item"><video controls playsinline><source src="media/video/video15_1.mp4" type="video/mp4"></video></div>
-                    <div class="media-item"><video controls playsinline><source src="media/video/video15_2.mp4" type="video/mp4"></video></div>
                     <div class="media-item"><img src="media/video/photo15_3.jpg" alt="Аккаунт"></div>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <div class="cta-container">
+        <a href="https://t.me/solwme1" target="_blank" class="bubble-button">
+            Больше моих работ
+        </a>
+    </div>
 
     <a href="https://t.me/solwme" class="tg-button" target="_blank">
         <img src="media/tg-icon.png" alt="Telegram">
