@@ -162,6 +162,26 @@
             .brand-name { font-size: 2.5rem; }
             .nav-item { padding: 8px 18px; }
         }
+
+
+        /* Эффект при наведении на кнопки меню в контактах */
+        .nav-item:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон */
+            color: #000; /* Цвет текста становится чернее */
+            transform: translateY(-2px); /* Кнопка слегка всплывает вверх */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Появляется мягкая тень */
+        }
+
+        /* Плавность для всех кнопок меню */
+        .nav-item {
+            text-decoration: none;
+            color: #555;
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Плавная анимация */
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
